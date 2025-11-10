@@ -3,24 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pizzeria</title>
 </head>
 <body>
     <?php
-        class Database {
-        private $pdo;
+    
+        require_once '../config/Db.php';
+        $db = new Database;
+        $db->getConnection();
 
-        public function __construct() {
-            require __DIR__ . '/config_local.php';
-
-            $this->pdo = new PDO(
-                "pgsql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME",
-                $DB_USER,
-                $DB_PASS
-            );
-            
-            }
-        }
     ?>
 </body>
 </html>
