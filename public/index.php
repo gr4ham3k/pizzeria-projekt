@@ -12,7 +12,7 @@
         $db = new Database;
         $conn = $db->getConnection();
 
-        $stmt = $conn->query("SELECT * FROM pizze");
+        $stmt = $conn->query("SELECT * FROM get_all_pizze()");
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         print("<b>Nazwa</b> <b>Cena</b><br>");
