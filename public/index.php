@@ -8,18 +8,21 @@
 <body>
     <?php
     
+        require_once '../classes/Pizze.php';
         require_once '../config/Db.php';
-        $db = new Database;
-        $conn = $db->getConnection();
 
-        $stmt = $conn->query("SELECT * FROM get_all_pizze()");
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $db = new Database();
         
+        $p = new Pizze($db);
+
+        $result = $p -> get_all_pizze_query();
+
         print("<b>Nazwa</b> <b>Cena</b><br>");
         foreach($result as $item)
         {
             print("<p>$item[nazwa] $item[cena]</p><br>");
         }
+        
     ?>
 </body>
 </html>
