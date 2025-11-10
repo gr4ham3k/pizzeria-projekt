@@ -10,8 +10,16 @@
     
         require_once '../config/Db.php';
         $db = new Database;
-        $db->getConnection();
+        $conn = $db->getConnection();
 
+        $stmt = $conn->query("SELECT * FROM pizze");
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        print("<b>Nazwa</b> <b>Cena</b><br>");
+        foreach($result as $item)
+        {
+            print("<p>$item[nazwa] $item[cena]</p><br>");
+        }
     ?>
 </body>
 </html>
