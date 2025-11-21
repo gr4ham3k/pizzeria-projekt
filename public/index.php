@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzeria</title>
-</head>
-<body>
-    <?php
-    
-        require_once '../classes/Pizze.php';
-        require_once '../config/Db.php';
+<?php
+    require_once '../classes/Pizze.php';
+    require_once '../config/Db.php';
 
-        $db = new Database();
-        
-        $p = new Pizze($db);
+    $page = $_GET['page'] ?? 'main';
 
-        $result = $p -> get_all_pizze_query();
-
-        print("<b>Nazwa</b> <b>Cena</b><br>");
-        foreach($result as $item)
-        {
-            print("<p>$item[nazwa] $item[cena]</p><br>");
-        }
-        
-    ?>
-</body>
-</html>
+    switch($page){
+        case 'main':
+            require_once 'main.php';
+            break;
+        default:
+            require_once 'main.php';
+    }
+?>
