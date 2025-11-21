@@ -5,8 +5,8 @@
     $page = $_GET['page'] ?? 'main';
 
     switch($page){
-        case 'main':
-            require_once 'main.php';
+        case 'login':
+            require_once 'login.php';
             break;
         default:
             require_once 'main.php';

@@ -10,6 +10,7 @@
     <header>
         <div id="header-div">
             <p>Pizzeria</p>
+            <a href="?page=login" style="color:black">Logowanie</a>
         </div>
     </header>
     <main>
