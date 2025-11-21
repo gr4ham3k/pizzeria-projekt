@@ -12,6 +12,14 @@ html,body{
     background-color: blue;
 }
 
+#footer-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: blue;
+}
+
 #header-div p{
     font-size: 50px;
     font-family: sans-serif;
