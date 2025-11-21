@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS public.pizze
     id_pizzy serial NOT NULL,
     nazwa character varying(50) COLLATE pg_catalog."default",
     cena numeric(6, 2),
+    zdjecie_sciezka character varying(50),
     CONSTRAINT pizze_pkey PRIMARY KEY (id_pizzy)
 );
 
