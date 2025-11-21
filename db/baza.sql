@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS public.zamowienia
     imie character varying(30) COLLATE pg_catalog."default" NOT NULL,
     nazwisko character varying(30) COLLATE pg_catalog."default" NOT NULL,
     telefon character varying(15) COLLATE pg_catalog."default" NOT NULL,
-    adres character varying(100) COLLATE pg_catalog."default" NOT NULL,
     data_zamowienia timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     status character varying(20) COLLATE pg_catalog."default" DEFAULT 'złożone'::character varying,
     cena_calkowita numeric(8, 2),
@@ -72,6 +71,28 @@ CREATE TABLE IF NOT EXISTS public.zamowienie_pizze
     ilosc integer DEFAULT 1,
     cena_pizzy numeric(6, 2),
     CONSTRAINT zamowienie_pizze_pkey PRIMARY KEY (id_zamowienia_pizzy)
+);
+
+CREATE TABLE IF NOT EXISTS public.koszyk (
+    id_koszyka SERIAL NOT NULL,
+    id_uzytkownika INTEGER NOT NULL,
+    id_pizzy INTEGER,
+    id_dodatku INTEGER,
+    ilosc INTEGER DEFAULT 1,
+    typ_produktu VARCHAR(10) NOT NULL CHECK (typ_produktu IN ('pizza', 'dodatek')),
+    cena_jednostkowa NUMERIC(6, 2),
+    data_dodania TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT koszyk_pkey PRIMARY KEY (id_koszyka),
+    CONSTRAINT koszyk_id_uzytkownika_fkey FOREIGN KEY (id_uzytkownika)
+        REFERENCES public.uzytkownicy (id_uzytkownika) ON DELETE CASCADE,
+    CONSTRAINT koszyk_id_pizzy_fkey FOREIGN KEY (id_pizzy)
+        REFERENCES public.pizze (id_pizzy) ON DELETE CASCADE,
+    CONSTRAINT koszyk_id_dodatku_fkey FOREIGN KEY (id_dodatku)
+        REFERENCES public.dodatki (id_dodatku) ON DELETE CASCADE,
+    CONSTRAINT koszyk_check_produkt CHECK (
+        (typ_produktu = 'pizza' AND id_pizzy IS NOT NULL AND id_dodatku IS NULL) OR
+        (typ_produktu = 'dodatek' AND id_dodatku IS NOT NULL AND id_pizzy IS NULL)
+    )
 );
 
 ALTER TABLE IF EXISTS public.zamowienia
