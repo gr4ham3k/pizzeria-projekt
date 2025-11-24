@@ -29,7 +29,7 @@ class Auth
                     $conn = $db->getConnection();
 
                     // Sprawdź czy użytkownik już istnieje
-                    $sql = "SELECT * FROM uzytkownicy WHERE email = '$mail'";
+                    $sql = "SELECT * FROM get_user_by_email('$mail')";
                     $stmt = $conn->query($sql);
                     $existing_user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -37,7 +37,7 @@ class Auth
                         $this->error = "Uzytkownik juz istnieje!";
                     } else {
                         // Dodaj nowego użytkownika
-                        $sql = "INSERT INTO uzytkownicy (email, haslo, rola) VALUES ('$mail', '$password', 'uzytkownik')";
+                        $sql = "SELECT add_user('$mail','$password')";
                         $conn->query($sql);
                         $this->successRegister = "Udalo sie zarejestrowac!";
                     }
@@ -57,7 +57,7 @@ class Auth
 
             try {
                 $conn = $db->getConnection();
-                $sql = "SELECT * FROM uzytkownicy WHERE email = '$mail' AND haslo = '$password'";
+                $sql = "SELECT * FROM login('$mail','$password')";
                 $stmt = $conn->query($sql);
                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
