@@ -11,6 +11,8 @@
         case 'register':
             require_once 'register.php';
             break;
+        case 'logout':
+            require_once 'logout.php';
         default:
             require_once 'main.php';
     }

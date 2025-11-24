@@ -32,6 +32,8 @@
 
                 if($auth->getError()){
                     echo "<p>".$auth->getError()."</p>";
+                }else{
+                    header('Location: ?page=main');
                 }
 
             }

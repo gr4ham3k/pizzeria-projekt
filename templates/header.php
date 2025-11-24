@@ -1,3 +1,8 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }   
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -9,6 +14,13 @@
 <body>
     <header>
         <div id="header-div">
+            <?php
+                if(isset($_SESSION['user_email'])){
+                    echo "<span>".$_SESSION['user_email']."</span>";
+                    echo "<a href='?page=logout' style='color:black'>Wyloguj się</a>";
+                }
+            ?>
+            
             <p>Pizzeria</p>
             <a href="?page=login" style="color:black">Logowanie</a>
             <a href="?page=register" style="color:black">Rejestracja</a>

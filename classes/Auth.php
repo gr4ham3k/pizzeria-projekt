@@ -62,8 +62,8 @@ class Auth
                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if ($user) {
+                    $_SESSION['user_email'] = $user['email'];
                     $this->logged = 1;
-                    echo "<div style='color: green; padding: 10px;'>Zalogowano jako: " . htmlspecialchars($user['email']) . "</div>";
                 } else {
                     $this->error = "Zly login lub haslo";
                 }
