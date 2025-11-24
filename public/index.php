@@ -8,6 +8,9 @@
         case 'login':
             require_once 'login.php';
             break;
+        case 'register':
+            require_once 'register.php';
+            break;
         default:
             require_once 'main.php';
     }

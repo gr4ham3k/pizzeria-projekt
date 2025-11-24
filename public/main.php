@@ -14,6 +14,7 @@
         print("<p>$item[nazwa] $item[cena]</p><br>");
     }
     print("</div>");
+    
     require_once '../templates/footer.php';
 
 ?>

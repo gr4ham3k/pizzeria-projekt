@@ -11,6 +11,9 @@
         <div id="header-div">
             <p>Pizzeria</p>
             <a href="?page=login" style="color:black">Logowanie</a>
+            <a href="?page=register" style="color:black">Rejestracja</a>
+            <a href="?page=main" style="color:black">Strona glowna</a>
+            
         </div>
     </header>
     <main>

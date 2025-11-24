@@ -1,0 +1,90 @@
+<?php
+class Auth
+{
+    private $db;
+    private $error;
+    private $successRegister;
+    private $logged;
+
+    public function __construct(Database $db)
+    {
+        $this->logged = 0;
+        $this->error = '';
+        $this->db = $db;
+    }
+
+    public function register($db)
+    {
+        // REJESTRACJA
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_mail'])) {
+            $mail = $_POST["register_mail"];
+            $password = $_POST["register_password"];
+            $password_confirm = $_POST["register_password_confirm"];
+
+            try {
+                // Sprawdź czy hasła są takie same
+                if ($password !== $password_confirm) {
+                    $this->error = "Hasla sie roznia!";
+                } else {
+                    $conn = $db->getConnection();
+
+                    // Sprawdź czy użytkownik już istnieje
+                    $sql = "SELECT * FROM uzytkownicy WHERE email = '$mail'";
+                    $stmt = $conn->query($sql);
+                    $existing_user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if ($existing_user) {
+                        $this->error = "Uzytkownik juz istnieje!";
+                    } else {
+                        // Dodaj nowego użytkownika
+                        $sql = "INSERT INTO uzytkownicy (email, haslo, rola) VALUES ('$mail', '$password', 'uzytkownik')";
+                        $conn->query($sql);
+                        $this->successRegister = "Udalo sie zarejestrowac!";
+                    }
+                }
+            } catch (Exception $e) {
+                $this->error = "Blad rejestracji!";
+            }
+        }
+    }
+
+    public function login($db)
+    {
+        // LOGOWANIE
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail'])) {
+            $mail = $_POST["mail"];
+            $password = $_POST["password"];
+
+            try {
+                $conn = $db->getConnection();
+                $sql = "SELECT * FROM uzytkownicy WHERE email = '$mail' AND haslo = '$password'";
+                $stmt = $conn->query($sql);
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($user) {
+                    $this->logged = 1;
+                    echo "<div style='color: green; padding: 10px;'>Zalogowano jako: " . htmlspecialchars($user['email']) . "</div>";
+                } else {
+                    $this->error = "Zly login lub haslo";
+                }
+            } catch (Exception $e) {
+                $this->error = "Nie udalo sie zalogowac";
+            }
+        }
+    }
+
+    public function isLogged(){
+        return $this->logged;
+    }
+
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    public function getSuccessRegister()
+    {
+        return $this->successRegister;
+    }
+}
+?>
