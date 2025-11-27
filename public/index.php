@@ -1,4 +1,7 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }  
     require_once '../classes/Pizze.php';
     require_once '../config/Db.php';
 
@@ -15,7 +18,10 @@
             require_once 'logout.php';
             break;
         case 'cart':
-            require_once 'cart.php';
+            if(isset($_SESSION['user_email']))
+                require_once 'cart.php';
+            else
+                require_once 'main.php';
             break;
         default:
             require_once 'main.php';
