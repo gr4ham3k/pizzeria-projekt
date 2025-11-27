@@ -28,7 +28,7 @@
         <?php
             if(isset($_POST['login']))
             {
-                $auth->login($db);
+                $auth->login();
 
                 if($auth->getError()){
                     echo "<p>".$auth->getError()."</p>";

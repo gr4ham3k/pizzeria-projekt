@@ -6,14 +6,14 @@ class Auth
     private $successRegister;
     private $logged;
 
-    public function __construct(Database $db)
+    public function __construct($db)
     {
         $this->logged = 0;
         $this->error = '';
         $this->db = $db;
     }
 
-    public function register($db)
+    public function register()
     {
         // REJESTRACJA
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_mail'])) {
@@ -26,7 +26,7 @@ class Auth
                 if ($password !== $password_confirm) {
                     $this->error = "Hasla sie roznia!";
                 } else {
-                    $conn = $db->getConnection();
+                    $conn = $this->db->getConnection();
 
                     // Sprawdź czy użytkownik już istnieje
                     $sql = "SELECT * FROM get_user_by_email('$mail')";
@@ -48,7 +48,7 @@ class Auth
         }
     }
 
-    public function login($db)
+    public function login()
     {
         // LOGOWANIE
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail'])) {
@@ -56,7 +56,7 @@ class Auth
             $password = $_POST["password"];
 
             try {
-                $conn = $db->getConnection();
+                $conn = $this->db->getConnection();
                 $sql = "SELECT * FROM login('$mail','$password')";
                 $stmt = $conn->query($sql);
                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -86,5 +86,16 @@ class Auth
     {
         return $this->successRegister;
     }
+
+    public function get_user_id($email)
+    {
+        $conn = $this->db->getConnection();
+        $sql = "SELECT * FROM get_user_by_email('$email')";
+        $stmt = $conn->query($sql);
+        $userId = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        return $userId;
+    }
+
 }
 ?>

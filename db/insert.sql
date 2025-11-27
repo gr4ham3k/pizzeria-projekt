@@ -6,7 +6,8 @@ INSERT INTO pizze (nazwa, cena) VALUES
 ('Hawajska', 29.00);
 
 INSERT INTO dodatki(id_dodatku,nazwa,cena_dodatkowa) VALUES
-(1, 'ser', 7),
-(2, 'peperoni', 10),
-(3, 'ciasto_pogrubione', 10),
-(4, 'sos_czosnkowy', 5);
+(1, 'brak',0),
+(2, 'ser', 7),
+(3, 'peperoni', 10),
+(4, 'ciasto_pogrubione', 10),
+(5, 'sos_czosnkowy', 5);

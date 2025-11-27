@@ -37,3 +37,7 @@ html,body{
 #pizze b{
     font-size: 75px;
 }
+
+#add-cart{
+    background-color: aqua;
+}

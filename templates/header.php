@@ -25,6 +25,7 @@
             <a href="?page=login" style="color:black">Logowanie</a>
             <a href="?page=register" style="color:black">Rejestracja</a>
             <a href="?page=main" style="color:black">Strona glowna</a>
+            <a href="?page=cart" style="color:black">Koszyk</a>
             
         </div>
     </header>

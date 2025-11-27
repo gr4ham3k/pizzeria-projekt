@@ -13,6 +13,10 @@
             break;
         case 'logout':
             require_once 'logout.php';
+            break;
+        case 'cart':
+            require_once 'cart.php';
+            break;
         default:
             require_once 'main.php';
     }

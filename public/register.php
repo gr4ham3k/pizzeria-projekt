@@ -35,7 +35,7 @@
             if(isset($_POST['register']))
             {
                 
-                $auth->register($db);
+                $auth->register();
 
                 if($auth->getError()){
                     echo "<p>".$auth->getError()."</p>";
