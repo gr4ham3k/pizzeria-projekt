@@ -19,9 +19,8 @@
     $dodatki = $d->get_all_dodatki();
 
     print("<div id='pizze'>");
-    print("<b>Nazwa</b> <b>Cena</b><br>");
     foreach ($pizze as $item) {
-        print("<form method=POST><p>$item[nazwa] $item[cena] 
+        print("<form method=POST><p>$item[nazwa] $item[cena] zł 
         <input type='number' name='num' value='1' max='10' min='1'> 
         <select name='dodatki'>");
         foreach($dodatki as $dodatek)
