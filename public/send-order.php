@@ -28,8 +28,9 @@
             $road = $_POST['road'];
             $building = $_POST['building'];
             $apartment = $_POST['apartment'];
+            $totalPrice = $_POST['totalPrice'];
 
-            $order->create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment);
+            $order->create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment,$totalPrice);
             header("Location: ?page=main");
         }
     }

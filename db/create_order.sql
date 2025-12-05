@@ -6,7 +6,8 @@ CREATE OR REPLACE FUNCTION create_order(
     p_city text,
     p_road text,
     p_building text,
-    p_apartment text
+    p_apartment text,
+	p_totalPrice decimal
 )
 RETURNS integer
 LANGUAGE plpgsql
@@ -18,13 +19,13 @@ BEGIN
         id_uzytkownika,
         imie, nazwisko, telefon,
         miasto, ulica, numer_budynku, numer_mieszkania,
-        data_zamowienia, status
+        data_zamowienia, status, cena_calkowita
     )
     VALUES (
         p_user_id,
         p_name, p_surname, p_phone,
         p_city, p_road, p_building, p_apartment,
-        CURRENT_TIMESTAMP, 'złożone'
+        CURRENT_TIMESTAMP, 'złożone', p_totalPrice
     )
     RETURNING id_zamowienia INTO v_order_id;
 

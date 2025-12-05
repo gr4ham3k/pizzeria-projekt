@@ -103,6 +103,7 @@
         <input type="text" name="building" required><br>
         Numer mieszkania
         <input type="text" name="apartment"><br>
+        <input type="number" name="totalPrice" value=<?=$totalPrice?> hidden>
         <button name="send-btn">Zamów</button>
     </form>
 </div>
