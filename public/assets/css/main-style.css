@@ -8,24 +8,36 @@ html, body {
 }
 
 
+/* Header kontener */
 #header-div {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 20px;
     height: 100px;
     background-color: #0077b6;
     color: #fff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+/* Dodanie max-width i centrowania */
+#header-div-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* maksymalna szerokość */
+    width: 100%;       /* wypełnia kontener */
+    margin: 0 auto;    /* centrowanie */
+}
+
+/* Tytuł */
 #header-div p {
     font-size: 36px;
     font-weight: 700;
     margin: 0;
 }
 
-
+/* Pasek linków */
 #header-div a {
     color: #fff;
     text-decoration: none;
@@ -38,20 +50,19 @@ html, body {
     color: #90e0ef;
 }
 
-
-#header-div .user-section {
+/* Sekcja użytkownika */
+.user-section {
     display: flex;
     align-items: center;
     gap: 15px;
     font-weight: 500;
 }
 
-
+/* Responsywność */
 @media (max-width: 768px) {
-    #header-div {
+    #header-div-inner {
         flex-direction: column;
-        height: auto;
-        padding: 15px;
+        align-items: center;
     }
     #header-div p {
         font-size: 28px;
@@ -61,11 +72,12 @@ html, body {
         margin-left: 10px;
         font-size: 14px;
     }
-    #header-div .user-section {
+    .user-section {
         flex-wrap: wrap;
         justify-content: center;
     }
 }
+
 
 
 
