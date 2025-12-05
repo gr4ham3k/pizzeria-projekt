@@ -1,5 +1,5 @@
-
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,8 +7,6 @@ html, body {
     color: #333;
 }
 
-
-/* Header kontener */
 #header-div {
     display: flex;
     justify-content: space-between;
@@ -17,27 +15,27 @@ html, body {
     height: 100px;
     background-color: #0077b6;
     color: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Dodanie max-width i centrowania */
+
 #header-div-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px; /* maksymalna szerokość */
-    width: 100%;       /* wypełnia kontener */
-    margin: 0 auto;    /* centrowanie */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-/* Tytuł */
+
 #header-div p {
     font-size: 36px;
     font-weight: 700;
     margin: 0;
 }
 
-/* Pasek linków */
+
 #header-div a {
     color: #fff;
     text-decoration: none;
@@ -50,7 +48,7 @@ html, body {
     color: #90e0ef;
 }
 
-/* Sekcja użytkownika */
+
 .user-section {
     display: flex;
     align-items: center;
@@ -58,28 +56,28 @@ html, body {
     font-weight: 500;
 }
 
-/* Responsywność */
+
 @media (max-width: 768px) {
     #header-div-inner {
         flex-direction: column;
         align-items: center;
     }
+
     #header-div p {
         font-size: 28px;
         margin-bottom: 10px;
     }
+
     #header-div a {
         margin-left: 10px;
         font-size: 14px;
     }
+
     .user-section {
         flex-wrap: wrap;
         justify-content: center;
     }
 }
-
-
-
 
 #footer-div {
     display: flex;
@@ -89,7 +87,7 @@ html, body {
     padding: 20px 0;
     background-color: #0077b6;
     color: #fff;
-    box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -107,14 +105,14 @@ html, body {
     background-color: #fff;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 #pizze form:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 #pizze p {
@@ -154,7 +152,8 @@ html, body {
 }
 
 
-.error-msg, .success-msg {
+.error-msg,
+.success-msg {
     text-align: center;
     font-weight: bold;
     margin: 20px 0;
