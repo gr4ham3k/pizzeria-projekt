@@ -90,17 +90,17 @@
     <!--- Formularz wysylania zamowienia ---> 
     <form method="post" action="?page=send-order" style="margin-bottom: 10px;">
         Imię
-        <input type="text" name="name"><br>
+        <input type="text" name="name" required><br>
         Nazwisko
-        <input type="text" name="surname"><br>
+        <input type="text" name="surname" required><br>
         Telefon
-        <input type="tel" name="tel"><br>
+        <input type="tel" name="tel" required><br>
         Miasto
-        <input type="text" name="city"><br>
+        <input type="text" name="city" required><br>
         Ulica
-        <input type="text" name="road"><br>
+        <input type="text" name="road" required><br>
         Numer budynku
-        <input type="text" name="building"><br>
+        <input type="text" name="building" required><br>
         Numer mieszkania
         <input type="text" name="apartment"><br>
         <button name="send-btn">Zamów</button>

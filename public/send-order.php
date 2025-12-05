@@ -1,10 +1,12 @@
 <?php
     require_once '../classes/Cart.php';
+    require_once '../classes/Order.php';
     require_once '../classes/Auth.php';
 
     $db = new Database();
     $user = new Auth($db);
     $cart = new Cart($db);
+    $order = new Order($db);
 
     //wysylanie zamowienia
     if(isset($_POST['send-btn']))
@@ -19,8 +21,15 @@
             exit();
         }
         else{
-            // tworzenie zamowienia
-            echo("tworzenie zamowienia");
+            $name = addslashes($_POST['name']);
+            $surname = addslashes($_POST['surname']);
+            $tel = addslashes($_POST['tel']);
+            $city = addslashes($_POST['city']);
+            $road = addslashes($_POST['road']);
+            $building = addslashes($_POST['building']);
+            $apartment = addslashes($_POST['apartment']);
+
+            $order->create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment);
         }
     }
 ?>
