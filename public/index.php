@@ -41,6 +41,18 @@
             else
                 require_once 'main.php';
             break;
+        case 'user-status':
+            if(isset($_SESSION['user_email']))
+                require_once 'user-status.php';
+            else
+                require_once 'main.php';
+            break;
+        case 'admin-panel':
+            if(isset($_SESSION['user_email']))
+                require_once 'admin-panel.php';
+            else
+                require_once 'main.php';
+            break;
         default:
             require_once 'main.php';
     }

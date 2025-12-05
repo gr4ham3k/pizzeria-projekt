@@ -2,6 +2,11 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }   
+
+    require_once '../classes/Auth.php';
+
+    $db = new Database();
+    $user = new Auth($db);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -30,8 +35,22 @@
                 {
                     print("<a href='?page=cart' style='color:black'>Koszyk</a>");
                 }
+
+                if(isset($_SESSION['user_email']))
+                {
+                    $user = $user->get_user_id($_SESSION['user_email']);
+
+                    if($user['rola'] == "uzytkownik")
+                    {
+                        print("<a href='?page=user-status' style='color:black'>Status</a>");
+                    }
+                    if($user['rola'] == 'admin')
+                    {
+                        print("<a href='?page=admin-panel' style='color:black'>Panel admina</a>");
+                    }
+                    
+                }
             ?>
-            
             
         </div>
     </header>
