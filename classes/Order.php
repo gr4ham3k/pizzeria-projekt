@@ -14,7 +14,7 @@
 
             $sql = "SELECT finalize_order('$userId','$name','$surname','$tel','$city','$road','$building','$apartment') AS order_id";
             $result = $conn->query($sql);
-            $orderId = $result['order_id'];
+            $orderId = $result->fetchColumn();
         }
     }
 ?>

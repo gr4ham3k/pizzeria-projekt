@@ -21,15 +21,16 @@
             exit();
         }
         else{
-            $name = addslashes($_POST['name']);
-            $surname = addslashes($_POST['surname']);
-            $tel = addslashes($_POST['tel']);
-            $city = addslashes($_POST['city']);
-            $road = addslashes($_POST['road']);
-            $building = addslashes($_POST['building']);
-            $apartment = addslashes($_POST['apartment']);
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $tel = $_POST['tel'];
+            $city = $_POST['city'];
+            $road = $_POST['road'];
+            $building = $_POST['building'];
+            $apartment = $_POST['apartment'];
 
             $order->create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment);
+            header("Location: ?page=main");
         }
     }
 ?>
