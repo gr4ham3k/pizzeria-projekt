@@ -18,40 +18,29 @@
 </head>
 <body>
     <header>
-        <div id="header-div">
-            <?php
-                if(isset($_SESSION['user_email'])){
-                    echo "<span>".$_SESSION['user_email']."</span>";
-                    echo "<a href='?page=logout' style='color:black'>Wyloguj się</a>";
-                }
-            ?>
-            
-            <p>Pizzeria</p>
-            <a href="?page=login" style="color:black">Logowanie</a>
-            <a href="?page=register" style="color:black">Rejestracja</a>
-            <a href="?page=main" style="color:black">Strona glowna</a>
-            <?php
-                if(isset($_SESSION['user_email']))
-                {
-                    print("<a href='?page=cart' style='color:black'>Koszyk</a>");
-                }
-
-                if(isset($_SESSION['user_email']))
-                {
-                    $user = $user->get_user_id($_SESSION['user_email']);
-
-                    if($user['rola'] == "uzytkownik")
-                    {
-                        print("<a href='?page=user-status' style='color:black'>Status</a>");
+    <div id="header-div">
+        <p>Pizzeria</p>
+        <div class="user-section">
+            <?php if(isset($_SESSION['user_email'])): ?>
+                <span><?php echo $_SESSION['user_email']; ?></span>
+                <a href='?page=logout'>Wyloguj się</a>
+                <a href='?page=cart'>Koszyk</a>
+                <?php
+                    $userData = $user->get_user_id($_SESSION['user_email']);
+                    if($userData['rola'] == 'uzytkownik') {
+                        echo "<a href='?page=user-status'>Status</a>";
                     }
-                    if($user['rola'] == 'admin')
-                    {
-                        print("<a href='?page=admin-panel' style='color:black'>Panel admina</a>");
+                    if($userData['rola'] == 'admin') {
+                        echo "<a href='?page=admin-panel'>Panel admina</a>";
                     }
-                    
-                }
-            ?>
-            
+                ?>
+            <?php else: ?>
+                <a href='?page=login'>Logowanie</a>
+                <a href='?page=register'>Rejestracja</a>
+            <?php endif; ?>
+            <a href='?page=main'>Strona główna</a>
         </div>
+    </div>
     </header>
+
     <main>
