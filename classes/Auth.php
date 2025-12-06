@@ -63,6 +63,7 @@ class Auth
 
                 if ($user) {
                     $_SESSION['user_email'] = $user['email'];
+                    $_SESSION['user_id'] = $user['id_uzytkownika'];  
                     $this->logged = 1;
                 } else {
                     $this->error = "Zly login lub haslo";
