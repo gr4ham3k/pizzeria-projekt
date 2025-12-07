@@ -1,0 +1,139 @@
+#cart-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+#cart-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0077b6;
+    margin-bottom: 20px;
+    text-align: left; /* od lewej, tak jak tabela */
+}
+
+.cart-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cart-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.cart-total {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0077b6;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Przycisk edycji / usuwania */
+.cart-item button {
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+.cart-item button:hover {
+    background-color: #0077b6;
+}
+
+
+.cart-item form label {
+    display: inline-block;
+    width: 80px;
+    font-weight: bold;
+}
+
+.cart-item form input[type="number"],
+.cart-item form select,
+.cart-item form input[type="text"],
+.cart-item form input[type="tel"] {
+    padding: 4px 6px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.cart-item form button {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+/* Łączna cena */
+.cart-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #0077b6;
+}
+
+/* Formularz wysyłania zamówienia */
+form[action="?page=send-order"] {
+    background-color: #caf0f8;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+}
+
+form[action="?page=send-order"] input[type="text"],
+form[action="?page=send-order"] input[type="tel"],
+form[action="?page=send-order"] input[type="number"] {
+    width: calc(100% - 10px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form[action="?page=send-order"] button {
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+form[action="?page=send-order"] button:hover {
+    background-color: #0077b6;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .cart-item form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .cart-item form input,
+    .cart-item form select {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    form[action="?page=send-order"] {
+        width: 95%;
+        padding: 15px;
+    }
+}

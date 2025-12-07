@@ -13,7 +13,7 @@
 
 ?>
 
-    <div style="text-align: center;">
+    <div id="cart-container" style="text-align: center;">
     <h1>Koszyk</h1>
     <?php
 
@@ -41,7 +41,7 @@
                 Dodatek: <?php echo $d[0]['nazwa']; ?>, 
                 Razem: <?php echo $item['cena_jednostkowa']; ?>zł
                 <button onclick="showEditForm(<?php echo $item['id_koszyka']; ?>)">Edytuj</button>
-                <form method="post" action="?page=cart-delete" style="display:inline;" onsubmit="return confirm('Czy na pewno chcesz usunąć pozycję?');">
+                <form class="delete-form" method="post" action="?page=cart-delete" style="display:inline;" onsubmit="return confirm('Czy na pewno chcesz usunąć pozycję?');">
                     <button name="delete-btn" value="<?php echo $item['id_koszyka']; ?>">X</button>
                 </form>
         </div>
@@ -83,7 +83,7 @@
     <?php
         } // <- koniec glownego foreacha
 
-        echo("<p>Łączna cena: $totalPrice zł</p>")
+        echo("<p class='cart-total'>Łączna cena: $totalPrice zł</p>")
 
     ?>
 

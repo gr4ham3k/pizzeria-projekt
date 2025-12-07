@@ -15,6 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzeria</title>
     <link rel="stylesheet" href="../public/assets/css/main-style.css">
+    <link rel="stylesheet" href="../public/assets/css/status.css">
+    <link rel="stylesheet" href="../public/assets/css/cart.css">
 </head>
 <body>
     <header>

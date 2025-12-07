@@ -20,7 +20,7 @@
         public function get_all_orders()
         {
             $conn = $this->db->getConnection();
-            $sql = "SELECT * FROM zamowienia ORDER BY data_zamowienia DESC";
+            $sql = "SELECT * FROM zamowienia ORDER BY data_zamowienia DESC"; //pgsql
             $stmt = $conn->query($sql);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -28,7 +28,7 @@
         public function update_status($orderId, $status)
         {
             $conn = $this->db->getConnection();
-            $sql = "UPDATE zamowienia SET status = :status WHERE id_zamowienia = :orderId";
+            $sql = "UPDATE zamowienia SET status = :status WHERE id_zamowienia = :orderId"; //pgsql
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':status', $status);
             $stmt->bindParam(':orderId', $orderId);
@@ -59,7 +59,7 @@
                 LEFT JOIN pizze p ON zp.id_pizzy = p.id_pizzy
                 LEFT JOIN dodatki d ON zp.id_dodatku = d.id_dodatku
                 WHERE zp.id_zamowienia = :orderId
-            ";
+            "; //pgsql
 
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);

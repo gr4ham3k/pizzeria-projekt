@@ -1,0 +1,82 @@
+/* Tabela zamówień */
+table.orders-table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto 60px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+}
+
+table.orders-table th, table.orders-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table.orders-table th {
+    background-color: #0077b6;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+table.orders-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.orders-table tr:hover {
+    background-color: #90e0ef;
+    transition: background-color 0.2s;
+}
+
+table.orders-table td hr {
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 5px 0;
+}
+
+table.orders-table td strong {
+    color: #0077b6;
+}
+
+table.orders-table td small {
+    color: #555;
+    font-size: 12px;
+}
+
+.orders-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* centrowanie */
+}
+
+.orders-container h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #0077b6;
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+    table.orders-table th, table.orders-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    table.orders-table {
+        width: 95%;
+    }
+
+    table.orders-table th, table.orders-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    table.orders-table td hr {
+        margin: 3px 0;
+    }
+}
