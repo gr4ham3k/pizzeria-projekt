@@ -32,6 +32,7 @@ $orders = $order->get_all_orders();
             <th>Ulica</th>
             <th>Nr budynku</th>
             <th>Nr mieszkania</th>
+            <th>Zamówienia</th>
             <th>Status</th>
         </tr>
     </thead>
@@ -49,6 +50,25 @@ $orders = $order->get_all_orders();
                 <td><?= $o['ulica'] ?></td>
                 <td><?= $o['numer_budynku'] ?></td>
                 <td><?= $o['numer_mieszkania'] ?></td>
+                <td>
+                <?php 
+                    $items = $order->getOrderItems($o['id_zamowienia']);
+                    foreach ($items as $item):
+                ?>
+
+                <strong><?= $item['produkt'] ?></strong>
+                – <?= $item['ilosc'] ?>× (<?= $item['cena'] ?> zł)<br>
+
+                <?php if (!empty($item['dodatek'])): ?>
+                    <small>Dodatki: <?= $item['dodatek'] ?></small><br>
+                <?php else: ?>
+                    <small>Dodatki: brak</small><br>
+                <?php endif; ?>
+
+                <hr>
+
+            <?php endforeach; ?>
+        </td>
                 <td>
                     <form method="POST" style="display:flex; gap:5px;">
                         <input type="hidden" name="order_id" value="<?= $o['id_zamowienia'] ?>">
