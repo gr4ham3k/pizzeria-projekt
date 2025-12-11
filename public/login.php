@@ -7,7 +7,8 @@
     
 ?>
   <!-- LOGOWANIE -->
-    <div id="logowanie" style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc;">
+   <div class="logowanie-div">
+    <div id="logowanie">
         <h2>Logowanie</h2>
         
         <form method="POST">
@@ -16,7 +17,7 @@
                 <input type="text" name="mail" required style="margin-left: 10px;">
             </div>
 
-            <div style="margin: 10px 0;">
+            <div>
                 <label>Hasło:</label>
                 <input type="password" name="password" required style="margin-left: 10px;">
             </div>
@@ -38,6 +39,7 @@
 
             }
         ?>
+    </div>
     </div>
 <?php
     require_once '../templates/footer.php';

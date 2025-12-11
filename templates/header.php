@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../public/assets/css/main-style.css">
     <link rel="stylesheet" href="../public/assets/css/status.css">
     <link rel="stylesheet" href="../public/assets/css/cart.css">
+    <link rel="stylesheet" href="../public/assets/css/login.css">
+    <link rel="stylesheet" href="../public/assets/css/register.css">
 </head>
 <body>
     <header>

@@ -26,12 +26,15 @@
         $userId = $user->get_user_id($_SESSION['user_email'])['id_uzytkownika'];
         $items = $cart->get_all($userId);
         $totalPrice = 0;
+        $totalPizzaCount = 0;
 
         foreach($items as $item)
         {
             $p = $pizza->get_single_pizza($item['id_pizzy']);
             $d = $dodatki->get_single_dodatek($item['id_dodatku']);
+
             $totalPrice += $item['cena_jednostkowa'];
+            $totalPizzaCount += $item['ilosc'];
     ?>
         <!--- Koszyk ---> 
         
@@ -83,7 +86,14 @@
     <?php
         } // <- koniec glownego foreacha
 
-        echo("<p class='cart-total'>Łączna cena: $totalPrice zł</p>")
+        $rabat = ($totalPizzaCount >= 2) ? 0.15 : 0;
+        $totalPrice = $totalPrice - ($totalPrice*$rabat);
+
+        echo("<p class='cart-total'>Łączna cena: ".round($totalPrice,2)." zł</p>");
+        if($rabat>0)
+        {
+            echo("<p class='cart-total'>Rabat:".($rabat*100)."%</p>");
+        }
 
     ?>
 

@@ -8,7 +8,8 @@
 ?>
 
  <!-- REJESTRACJA -->
-    <div id="rejestracja" style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc;">
+  <div class="register-div">
+    <div id="rejestracja">
         <h2>Rejestracja</h2>
         
         <form method="POST">
@@ -47,6 +48,7 @@
                 }
             }
         ?>
+    </div>
     </div>
 
 <?php

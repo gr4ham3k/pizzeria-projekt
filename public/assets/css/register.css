@@ -1,0 +1,80 @@
+.register-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rejestracja {
+    width: 400px;
+    max-width: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#rejestracja h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0077b6;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#rejestracja form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#rejestracja form input[type="text"],
+#rejestracja form input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#rejestracja form input[type="text"]:focus,
+#rejestracja form input[type="password"]:focus {
+    border-color: #0077b6;
+    box-shadow: 0 0 5px rgba(0, 119, 182, 0.4);
+    outline: none;
+}
+
+#rejestracja form input[type="submit"] {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+#rejestracja form input[type="submit"]:hover {
+    background-color: #0096c7;
+    transform: translateY(-2px);
+}
+
+#rejestracja p {
+    text-align: center;
+    color: #d90429;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Komunikat sukcesu */
+#rejestracja p.success {
+    color: #2b9348;
+}
