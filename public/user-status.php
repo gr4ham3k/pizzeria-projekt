@@ -64,7 +64,7 @@ $userOrders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <td style="width: 20%;"><?= date('Y-m-d H:i', strtotime($order['data_zamowienia'])) ?></td>
         <td><?= $order['status'] ?></td>
         <td><?= $order['cena_calkowita'] ?> zł</td>
-        <td><?= (int)$order['rabat'] ?>%</td>
+        <td><?= 100*$order['rabat'] ?>%</td>
         <td><?= $order['imie'] ?></td>
         <td><?= $order['nazwisko'] ?></td>
         <td><?= $order['miasto'] ?></td>

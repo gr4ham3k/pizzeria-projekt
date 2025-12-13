@@ -20,11 +20,13 @@
         public function get_single_dodatek($id)
         {
             $conn = $this->db->getConnection();
-            $stmt = $conn->query("SELECT * FROM dodatki WHERE id_dodatku='$id'"); //to-do jako funkcja w pgsql
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
-            return $result;
+            $stmt = $conn->prepare("SELECT * FROM get_single_dodatek(:id)");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+
 
     }
 ?>

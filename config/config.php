@@ -3,5 +3,5 @@
     $DB_PORT = '5432';
     $DB_NAME = 'pizzeria';
     $DB_USER = 'postgres';
-    $DB_PASS = 'Kubaczr1!';
+    $DB_PASS = 'Maciek123';
 ?>

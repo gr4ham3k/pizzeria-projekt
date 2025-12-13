@@ -28,11 +28,12 @@
         public function update_status($orderId, $status)
         {
             $conn = $this->db->getConnection();
-            $sql = "UPDATE zamowienia SET status = :status WHERE id_zamowienia = :orderId"; //pgsql
+            $sql = "SELECT update_order_status(:orderId, :status)";
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':status', $status);
             $stmt->bindParam(':orderId', $orderId);
-            return $stmt->execute();
+            $stmt->bindParam(':status', $status);
+            $stmt->execute();
+
         }
 
         // public function get_user_orders($userId)
@@ -45,28 +46,19 @@
         //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
         // }
 
-        public function getOrderItems($orderId)
+        public function getOrderItems($order_id)
         {
             $conn = $this->db->getConnection();
 
-            $sql = "
-                SELECT 
-                    zp.ilosc,
-                    zp.cena_pizzy AS cena,
-                    p.nazwa AS produkt,
-                    COALESCE(d.nazwa, '') AS dodatek
-                FROM zamowienie_pizze zp
-                LEFT JOIN pizze p ON zp.id_pizzy = p.id_pizzy
-                LEFT JOIN dodatki d ON zp.id_dodatku = d.id_dodatku
-                WHERE zp.id_zamowienia = :orderId
-            "; //pgsql
-
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
+            $stmt = $conn->prepare("
+                SELECT * FROM get_order_items(:order_id)
+            ");
+            $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
             $stmt->execute();
 
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+
 
 
 

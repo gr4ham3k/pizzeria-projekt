@@ -45,7 +45,7 @@ $orders = $order->get_all_orders();
                 <td><?= $o['telefon'] ?></td>
                 <td style="width:20%;"><?= date('Y-m-d H:i', strtotime($o['data_zamowienia'])) ?></td>
                 <td><?= $o['cena_calkowita'] ?></td>
-                <td><?= (int)$o['rabat'] ?>%</td>
+                <td><?= 100*$o['rabat'] ?>%</td>
                 <td><?= $o['miasto'] ?></td>
                 <td><?= $o['ulica'] ?></td>
                 <td><?= $o['numer_budynku'] ?></td>
