@@ -114,6 +114,7 @@
         Numer mieszkania
         <input type="text" name="apartment"><br>
         <input type="number" name="totalPrice" value=<?=$totalPrice?> hidden>
+        <input type="number" name="rabat" value=<?=$rabat?> hidden>
         <button name="send-btn">Zamów</button>
     </form>
 </div>

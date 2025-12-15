@@ -8,11 +8,11 @@
             $this->db = $db;
         }
 
-        public function create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment,$totalPrice)
+        public function create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment,$totalPrice,$rabat)
         {
             $conn = $this->db->getConnection();
 
-            $sql = "SELECT finalize_order('$userId','$name','$surname','$tel','$city','$road','$building','$apartment','$totalPrice') AS order_id";
+            $sql = "SELECT finalize_order('$userId','$name','$surname','$tel','$city','$road','$building','$apartment','$totalPrice','$rabat') AS order_id";
             $result = $conn->query($sql);
             $orderId = $result->fetchColumn();
         }

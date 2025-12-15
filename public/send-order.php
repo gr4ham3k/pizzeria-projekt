@@ -29,8 +29,9 @@
             $building = $_POST['building'];
             $apartment = $_POST['apartment'];
             $totalPrice = $_POST['totalPrice'];
+            $rabat = $_POST['rabat'];
 
-            $order->create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment,$totalPrice);
+            $order->create_order($userId,$name,$surname,$tel,$city,$road,$building,$apartment,$totalPrice,$rabat);
             header("Location: ?page=main");
         }
     }
