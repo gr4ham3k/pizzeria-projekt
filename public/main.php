@@ -20,14 +20,16 @@
 
     print("<div id='pizze'>");
     foreach ($pizze as $item) {
-        print("<form method=POST><p>$item[nazwa] $item[cena] zł 
+        print("<div id='pizza-div'><form method=POST>
+        <img src='..$item[zdjecie_sciezka]'>
+        <p>$item[nazwa] $item[cena] zł 
         <input type='number' name='num' value='1' max='10' min='1'> 
         <select name='dodatki'>");
         foreach($dodatki as $dodatek)
         {
             print("<option value='$dodatek[id_dodatku]'>$dodatek[nazwa] + $dodatek[cena_dodatkowa]zl</option>");
         }
-        print("</select><button type='submit' value='$item[id_pizzy]' id='add-cart' name='id_pizzy'>Add</button></p></form><br>");
+        print("</select><button type='submit' value='$item[id_pizzy]' id='add-cart' name='id_pizzy'>Add</button></p></form></div><br>");
     }
     print("</div>");
     
